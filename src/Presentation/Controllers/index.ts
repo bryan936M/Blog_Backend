@@ -33,7 +33,8 @@ export default class BlogController {
 
   
   public read(req: Request, res: Response) {
-  
+    
+    console.log('BlogController.read...')
     this.readBlogsController.handle(req, res);
     
   }

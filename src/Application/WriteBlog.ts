@@ -4,8 +4,8 @@ import { IUseCase } from "./IUseCase";
 
 
 interface IWriteBlogInput {
-  coverImg: string;
   title: string;
+  coverImg: string;
   content: string;
   author: string;
 }

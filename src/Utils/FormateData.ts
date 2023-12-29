@@ -3,14 +3,14 @@ import { Response } from 'express';
 export default function sendResponse (res: Response, results: unknown): void{
   try {
     
-    if (results === null){
+    if (!results){
       throw new Error('No results found');
     }
 
     if (results instanceof Error){
       throw new Error(results.message);
     }
-
+    console.log('sendResponse...')
     res.send(results);
   
   } catch (error) {

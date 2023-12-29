@@ -8,10 +8,10 @@ export default class ReadBlogsController implements IController {
 
   constructor(private readonly _read: ReadBlogs) {}
 
-    public async handle(req: Request, res: Response): Promise<void> {
-  
+  public async handle(req: Request, res: Response): Promise<void> {
+      console.log('ReadBlogsController...')
       const results = await this._read.execute();
-
+      console.log(results);
       sendResponse(res, results);
   
     }

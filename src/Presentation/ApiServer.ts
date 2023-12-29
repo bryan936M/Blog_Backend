@@ -18,10 +18,10 @@ export default class ApiServer {
 
     this._blogController.route(app);
 
-    app.use((err: any, req: express.Request, res: express.Response, next: express.NextFunction) => {
-      console.error(err.stack);
-      res.status(500).send('Something went wrong!'), err.message;
-    }); 
+    // app.use((err: any, req: express.Request, res: express.Response, next: express.NextFunction) => {
+    //   console.error(err.stack);
+    //   res.status(500).send('Something went wrong!'), err.message;
+    // }); 
 
     app.listen(port, () => {
       console.log(`Server started at http://localhost:${port}`);
