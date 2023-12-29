@@ -5,4 +5,5 @@ export interface IBlogRepository {
   create(blog: IBlog): Promise<{id: string}>;
   findWithId(id: string): Promise<IBlog | null>;
   update(blog: IBlog): Promise<IBlog>;
+  deleteWithId(id: string): Promise<void>;
 }
