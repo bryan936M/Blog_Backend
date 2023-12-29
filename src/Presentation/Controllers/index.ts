@@ -1,6 +1,6 @@
 // Handle Requests and Responses
 
-import express, {Request, Response} from "express";
+import express, {Request, Response, NextFunction} from "express";
 import WriteBlogController from "./WriteBlogController";
 import ReadBlogsController from "./ReadBlogsController";
 import UpdateBlogController from "./UpdateBlogController";
@@ -17,25 +17,29 @@ export default class BlogController {
 
   public route(app: express.Application) {
     app.get('/', this.index);
-    app.post('/create', this.create);
-    app.get('/read', this.read);
+    app.post('/create',((req, res, next) => this.create(req, res, next)));
+    app.get('/read', ((req, res, next) => this.read(req, res, next)));
   }
   
   public index(req: Request, res: Response) {
     res.send('This is the blog service!')
   }
 
-  public create(req: Request, res: Response) {
+  public create(req: Request, res: Response, next: NextFunction) {
     
-    this.writeBlogController.handle(req, res);
+    this.writeBlogController.handle(req, res).catch(err => {
+      next(err);
+    });
   
   }
 
   
-  public read(req: Request, res: Response) {
+  public read(req: Request, res: Response, next: NextFunction) {
     
     console.log('BlogController.read...')
-    this.readBlogsController.handle(req, res);
+    this.readBlogsController.handle(req, res).catch(err => {
+      next(err);
+    });;
     
   }
 
