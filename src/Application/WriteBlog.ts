@@ -1,6 +1,6 @@
 import Blog from '../Domain';
-import { IBlogRepository } from "../Repository/IBlogRepository";
-import { IUseCase } from "./IUseCase";
+import { IBlogRepository } from "../Interfaces/IBlogRepository";
+import { IUseCase } from "../Interfaces/IUseCase";
 
 
 interface IWriteBlogInput {

@@ -10,6 +10,7 @@ node_modules/
 
 # Ignore the build directory (if you have one)
 /build/
+/drizzle
 
 # Ignore environment configuration files
 .env

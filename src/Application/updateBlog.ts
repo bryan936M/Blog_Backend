@@ -1,6 +1,6 @@
 import { IBlog } from "../Domain/Blog";
-import { IBlogRepository } from "../Repository/IBlogRepository";
-import { IUseCase } from "./IUseCase";
+import { IBlogRepository } from "../Interfaces/IBlogRepository";
+import { IUseCase } from "../Interfaces/IUseCase";
 
 interface IBlogInputs extends Partial<IBlog> {
   id: string;

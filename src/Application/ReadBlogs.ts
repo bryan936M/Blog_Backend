@@ -1,7 +1,7 @@
 import makeBlog from "../Domain";
 import { IBlog } from "../Domain/Blog";
-import { IBlogRepository } from "../Repository/IBlogRepository";
-import { IUseCase } from "./IUseCase";
+import { IBlogRepository } from "../Interfaces/IBlogRepository";
+import { IUseCase } from "../Interfaces/IUseCase";
 
 class BlogOutput {
   constructor(
@@ -24,15 +24,11 @@ class BlogOutput {
 }
 
 export default class ReadBlogs implements IUseCase<any, BlogOutput[]> {
-
   constructor(private readonly _blogRepository: IBlogRepository) {}
 
-  public async execute(): Promise<BlogOutput[]> {
-    
+  public async execute({}: any): Promise<BlogOutput[]> {
     return this._blogRepository.readAll().then((blogs) => {
-      
       return blogs.map((blog) => BlogOutput.from(blog));
     });
-
   }
 }
