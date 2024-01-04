@@ -13,8 +13,8 @@ export default class BlogController {
 
   public route(app: express.Application) {
     app.get("/", this.index);
-    app.post("/create", (req, res, next) => this.create(req, res, next));
-    app.get("/read", (req, res, next) => this.read(req, res, next));
+    app.post("/create", this.create.bind(this));
+    app.get("/read", this.read.bind(this));
   }
 
   public index(req: Request, res: Response) {

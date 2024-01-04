@@ -7,6 +7,8 @@
     "build": "tsc --project .",
     "dev": "nodemon --exec ts-node-dev src/index.ts",
     "introspect": "drizzle-kit introspect:pg",
+    "migration:generation": "drizzle-kit generate:pg",
+    "migration:push": "ts-node-dev src/Utils/db/migrate.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
