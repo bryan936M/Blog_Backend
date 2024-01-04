@@ -1,5 +1,4 @@
-import makeBlog from "../Domain";
-import { IBlog } from "../Domain/Blog";
+import { BlogClass } from "../Domain";
 import { IBlogRepository } from "../Interfaces/IBlogRepository";
 import { IUseCase } from "../Interfaces/IUseCase";
 
@@ -12,13 +11,13 @@ class BlogOutput {
     public createdAt: Date
   ) {}
 
-  public static from(blog: IBlog): BlogOutput {
+  public static from(blog: BlogClass): BlogOutput {
     return new BlogOutput(
       blog.coverImg,
       blog.title,
       blog.content,
       blog.author,
-      blog.createdAt
+      blog.createdAt,
     );
   }
 }

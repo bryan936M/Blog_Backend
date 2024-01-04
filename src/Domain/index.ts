@@ -1,6 +1,14 @@
-import BlogFactory from "./Blog";
+import BlogFactory, { IBlogOptions } from "./Blog";
 import {randomUUID} from "crypto"
 
 const makeId = () => randomUUID();
 
-export default new BlogFactory({makeId})
+const blogFactory = new BlogFactory({makeId});
+
+export class BlogClass extends blogFactory.create() {
+  constructor(options: IBlogOptions) {
+    super(options);
+  }
+}
+
+// export const Blog = blogFactory.create();
