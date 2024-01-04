@@ -8,7 +8,8 @@ class BlogOutput {
     public title: string,
     public content: string,
     public author: string,
-    public createdAt: Date
+    public createdAt: Date,
+    public id?: unknown,
   ) {}
 
   public static from(blog: BlogClass): BlogOutput {
@@ -18,6 +19,7 @@ class BlogOutput {
       blog.content,
       blog.author,
       blog.createdAt,
+      blog.id,
     );
   }
 }

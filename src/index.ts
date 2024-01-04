@@ -4,14 +4,17 @@ import BlogController from "./Presentation/Controllers";
 import { ReadBlogs, WriteBlog } from "./Application";
 import {WriteBlogController, ReadBlogsController} from "./Presentation/Controllers";
 import {testConnection} from "./Utils/db";
-
+import db from "./Utils/db";
+import DrizzleRepository from "./Repository/DrizzleRepository";
 
 
 async function main() {
   await testConnection();
+
   
   // Repository
-  const blogRepository = new InMemoryRepository();
+  // const blogRepository = new InMemoryRepository();
+  const blogRepository = new DrizzleRepository(db);
   
   // Use Cases
   const writeBlog = new WriteBlog(blogRepository);
