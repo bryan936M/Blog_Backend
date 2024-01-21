@@ -9,8 +9,7 @@
     "introspect": "drizzle-kit introspect:pg",
     "migration:generation": "drizzle-kit generate:pg",
     "migration:push": "ts-node-dev src/Utils/db/migrate.ts",
-    "drizzle:studio": "drizzle-kit studio",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "drizzle:studio": "drizzle-kit studio"
   },
   "keywords": [],
   "author": "",
